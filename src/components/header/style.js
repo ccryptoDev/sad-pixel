@@ -64,6 +64,21 @@ export const MenuItem = styled.div`
   &:hover {
     color: rgb(171, 171, 171);
   }
+  button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  button:hover {
+    color: rgb(171, 171, 171) !important;
+  }
   a {
     color: #fff !important;
     text-decoration: none !important;

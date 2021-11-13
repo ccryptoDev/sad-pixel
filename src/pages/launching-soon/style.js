@@ -28,6 +28,9 @@ export const PageContainer = styled.div`
   span.italic {
     font-style: italic;
   }
+  q.quote {
+    font-style: italic;
+  }
   .desc-with-icon p {
     margin-bottom: 30px;
   }
@@ -148,6 +151,9 @@ export const Banner = styled.div`
 export const ShortDesc = styled.div`
   padding: 56px 0;
 
+  &.no-padding {
+    padding: 0
+  }
   img {
     width: 100%;
   }
@@ -159,6 +165,12 @@ export const ShortDesc = styled.div`
 export const Roadmap = styled.div`
   padding: 56px 0;
 
+  &.no-padding-bottom {
+    padding-bottom: 0px;
+  }
+  &.no-padding-top {
+    padding-top: 0px;
+  }
   img {
     width: 100%;
   }

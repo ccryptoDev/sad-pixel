@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import {
   Container,
@@ -14,15 +14,50 @@ import {
   MobileMenuContainer
 } from './style'
 import { Burger, MobileMenu } from '../../components';
-// import { slide as SlideMenu } from 'react-burger-menu'
 import FocusLock from 'react-focus-lock'
+import { connectWeb3, connectMetamask, getUserAddress } from '../../utils/useWeb3'
+import BaseModal from '../modal/baseModal'
+import BuyModal from '../modal/buyModal'
 import Logo from '../../assets/image/logo.png'
 
 const Header = (isFixed, active, ...props) => {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [activedMenu, setActivedMenu] = useState('launching');
+  const [address, setAddress] = useState('')
+  const [show, setShow] = useState(false);
+  
   const menuId = "main-menu";
+
+  useEffect(() => {
+    async function getAddress() {
+      const address = await getUserAddress()
+      if(address) {
+        setAddress(address)
+      }
+    }
+    getAddress();
+  }, [])
+  const connectWallet = async() => {
+    try{
+      const connection = await connectWeb3()
+      if(connection) {
+        if(connection._state.accounts.length > 0) {
+          setAddress(connection.selectedAddress)
+        }
+      }
+    } catch(e) {
+      console.log('error', e);
+    }
+  }
+
+  const handleBuyButton = () => {
+    setShow(true)
+  }
+
+  const closeModal = () => {
+    setShow(false);
+  };
 
   return (
     <HeaderContainer isFixed={isFixed}>
@@ -53,11 +88,18 @@ const Header = (isFixed, active, ...props) => {
               <MenuItem>
                 <a href="http://discord.gg/hTdUmKfAtb" target="_blank" rel="noopener noreferrer">Discord</a>
               </MenuItem>
+              {/* <MenuItem>
+                {!address && (<button onClick={connectWallet}>Connect Wallet</button>)}
+                {address && (<button onClick={handleBuyButton}>Buy</button>)}
+              </MenuItem> */}
             </Menu>
             </Col>
           </HeaderInner>
         </Row>
       </Container>
+      <BaseModal show={show} closeModal={closeModal} address={String(address).substring(0, 10) + "..."}>
+        <BuyModal closeModal={closeModal} pricePerMint="0.02" max="3" />
+      </BaseModal>
     </HeaderContainer>
   );
 }
