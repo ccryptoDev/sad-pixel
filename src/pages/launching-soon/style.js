@@ -31,6 +31,18 @@ export const PageContainer = styled.div`
   q.quote {
     font-style: italic;
   }
+  .underline {
+    display: inline-block;
+    font-weight: bolder;
+    line-height: 0.9;
+    color: #dcddde;
+    border-bottom: 1px solid #dcddde;
+  }
+  .emoji {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: -2px;
+  }
   .desc-with-icon p {
     margin-bottom: 30px;
   }

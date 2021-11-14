@@ -92,15 +92,15 @@ const LaunchingSoon = () => {
                   <h1>Our Team</h1>
                   <p>
                     Too sad to dox ourselves.<br />
-                    <q className="quote">Big tech and social have destroyed our mental health.</q>&nbsp;&nbsp;
-                    That's literally the entire message of this project. So why would we put ourselves out there on social media? No thanks. Sorry internet strangers 
+                    <q className="quote">Big tech and <div className="underline">social</div> media have destroyed our mental health.</q>&nbsp;&nbsp;
+                    That's literally the entire message of this project. So why would we put ourselves out there on social media? No thanks. Sorry internet strangers <div className="emoji">&#128579;</div>
                   </p>
                   <p>
-                    If you're still so interested in our personal lives, we live in Los Angeles and work in the music industry.
-                    We have degrees from USC and UC Berkeley, and 15+ years of experience creating art projects with bilion-streaming recording artists.
+                    If you’re still so interested in our personal lives, we live in Los Angeles and work in the music industry. 
+                    We have degrees from USC and UC Berkeley, and 15+ years of experience creating art projects with billion-streaming recording artists.
                   </p>
                   <p>
-                    This is just pixel art project-- it's really not that serious.
+                    This is just <div className="underline">a</div> pixel art project-- it's really not that serious.
                   </p>
                   <div className="mt-7">
                     <ConnectToDiscord onClick={JoinToDiscord}>
