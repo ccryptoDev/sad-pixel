@@ -15,10 +15,11 @@ import {
 } from './style'
 import { Burger, MobileMenu } from '../../components';
 import FocusLock from 'react-focus-lock'
-import { connectWeb3, connectMetamask, getUserAddress } from '../../utils/useWeb3'
 import BaseModal from '../modal/baseModal'
 import BuyModal from '../modal/buyModal'
 import Logo from '../../assets/image/logo.png'
+
+import ConnectBtnWrapper from './ConnectBtnWrapper'
 
 const Header = (isFixed, active, ...props) => {
   const history = useHistory();
@@ -30,26 +31,42 @@ const Header = (isFixed, active, ...props) => {
   const menuId = "main-menu";
 
   useEffect(() => {
-    async function getAddress() {
-      const address = await getUserAddress()
-      if(address) {
-        setAddress(address)
-      }
-    }
-    getAddress();
+    // const provider = getProvider()
+    // if(provider) {
+    //   if(!provider.isConnected) {
+    //     connectToPhantom()
+    //   }
+    // }
   }, [])
-  const connectWallet = async() => {
-    try{
-      const connection = await connectWeb3()
-      if(connection) {
-        if(connection._state.accounts.length > 0) {
-          setAddress(connection.selectedAddress)
-        }
-      }
-    } catch(e) {
-      console.log('error', e);
+
+  // connect to phantom
+  const createConnection = () => {
+    connectToPhantom()
+  };
+
+  const connectToPhantom = async () => {
+    try {
+      const resp = await window.solana.connect()
+      const publicKey = resp.publicKey.toString()
+      setAddress(publicKey)
+      return true
+    } catch (err) {
+      console.log(err.message)
+      return false
     }
   }
+  
+  const getProvider = () => {
+    if ("solana" in window) {
+      const provider = window.solana;
+      if (provider.isPhantom) {
+        return provider;
+      } else {
+        return false
+      }
+    }
+    // window.open("https://phantom.app/", "_blank");
+  };
 
   const handleBuyButton = () => {
     setShow(true)
@@ -79,19 +96,26 @@ const Header = (isFixed, active, ...props) => {
             </Col>
             <Col>
             <Menu>
-              <MenuItem className="active">
-                <a href="/launching-soon">Launching Soon</a>
+              {/* <MenuItem>
+                <a href="/launching-soon">Comming Soon</a>
+              </MenuItem> */}
+
+              {/* <MenuItem>
+                {!address && (<button onClick={createConnection}>Connect</button>)}
+                {address && (<button onClick={handleBuyButton}>Mint</button>)}
+              </MenuItem> */}
+
+              <MenuItem>
+                <ConnectBtnWrapper />
               </MenuItem>
+
               <MenuItem>
                 <a href="https://twitter.com/SadPixelsNFT" target="_blank" rel="noopener noreferrer">Twitter</a>
               </MenuItem>
               <MenuItem>
                 <a href="http://discord.gg/hTdUmKfAtb" target="_blank" rel="noopener noreferrer">Discord</a>
               </MenuItem>
-              {/* <MenuItem>
-                {!address && (<button onClick={connectWallet}>Connect Wallet</button>)}
-                {address && (<button onClick={handleBuyButton}>Buy</button>)}
-              </MenuItem> */}
+              
             </Menu>
             </Col>
           </HeaderInner>

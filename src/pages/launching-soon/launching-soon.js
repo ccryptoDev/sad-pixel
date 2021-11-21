@@ -29,6 +29,7 @@ import phase2 from '../../assets/image/phase2.png'
 import phase3 from '../../assets/image/phase3.png'
 import roadmap from '../../assets/image/roadmap.png'
 
+
 const LaunchingSoon = () => {
   const [isFixed, setIsFixed] = useState(false);
   const JoinToDiscord = () => {

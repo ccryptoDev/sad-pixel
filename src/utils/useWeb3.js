@@ -5,7 +5,6 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import ToadABI from './abi.json';
 import { CONTRACT_ADDRESS, INFURA_KEY } from './constants'
 
-// const PRICE = 40000000000000000;
 let contract;
 
 const providerOptions = {
@@ -89,26 +88,5 @@ async function purchaseToad(numBought, totalAmount) {
 
   return transaction
 }
-
-// async function purchaseToad(numBought, price) {
-//   const userAddress = await getUserAddress();
-//   try {
-//     let predictedGas = await contract.methods.mintToad(numBought).estimateGas({
-//       from: userAddress,
-//       to: CONTRACT_ADDRESS,
-//       value: numBought * price
-//     });
-
-//     await contract.methods.mintToad(numBought).send({
-//       from: userAddress,
-//       to: CONTRACT_ADDRESS,
-//       value: numBought * price,
-//       gas: predictedGas,
-//     })
-//   } catch (err) {
-//     if (typeof err === 'string') { window.alert(err); }
-//     else { window.alert(err.message); }
-//   }
-// }
 
 export { connectWeb3, getCurrentIndex, getUserAddress, getMetaMaskInstalled, connectMetamask, purchaseToad, hasSaleStarted, loadContract };

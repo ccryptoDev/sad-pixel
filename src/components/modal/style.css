@@ -128,7 +128,7 @@
   font-family: 'prstart';
   font-size: 23px;
   text-align: center;
-  margin: 3rem 0;
+  margin: 5rem 0 7rem;
 }
 
 .modal-footer {
@@ -187,11 +187,11 @@
   
 }
 .amount-input input {
-  border: 1px solid #fff;
+  border: 1px solid #43a51c;
   background: transparent;
   padding: 10px 10px;
   font-size: 17px;
-  color: #fff !important;
+  color: #43a51c !important;
   line-height: 19px;
   box-sizing: border-box;
   width: 250px;
@@ -205,6 +205,7 @@
   padding: 10px 20px;
   text-align: center;
   background: #07FC79;
+  background: #00ff19;
   margin-left: auto;
   text-align: center !important;
   cursor: pointer;
@@ -212,7 +213,8 @@
   font-size: 16px;
   letter-spacing: 1px;
   transition: 0.5s;
-  margin-top: 20px
+  margin-top: 20px;
+  font-weight: bold;
 }
 .mint-btn:hover {
   opacity: 0.6;

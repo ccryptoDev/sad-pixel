@@ -1,2 +1,10 @@
 export const CONTRACT_ADDRESS = "0x42D5F264e199Bdf6a341d95331bFec9EFB1a7f2C"
 export const INFURA_KEY="e632a702eec64a4d867d65d8923d4309"
+
+export const REACT_APP_CANDY_MACHINE_CONFIG = "4Zn7WjCf6fPMX2hT4qDfF9EtrQ2BNWfM8V7nmaZRbXwu"
+export const REACT_APP_CANDY_MACHINE_ID = "3T5RKpW4Hyquafa8PvDqAafY9xKAB2z2ShYUPyjcVxco"
+export const REACT_APP_TREASURY_ADDRESS = "DvzkjdSSdGpBruXdUERe1BC16ALKNp45Rmrj5LSbFQup"
+export const REACT_APP_CANDY_START_DATE = 1637329197
+
+export const REACT_APP_SOLANA_NETWORK = "devnet"
+export const REACT_APP_SOLANA_RPC_HOST = "https://explorer-api.devnet.solana.com"
