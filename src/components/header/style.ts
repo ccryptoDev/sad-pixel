@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface props {
+  isFixed: boolean
+}
+
 export const HeaderContainer = styled.div`
   width: 100%;
   margin: 0 auto;

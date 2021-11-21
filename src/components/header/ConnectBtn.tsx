@@ -63,8 +63,16 @@ const MintContainer = styled.div`
   }
 `; // add your styles here
 
+export interface connectProps {
+  candyMachineId: anchor.web3.PublicKey;
+  config: anchor.web3.PublicKey;
+  connection: anchor.web3.Connection;
+  startDate: number;
+  treasury: anchor.web3.PublicKey;
+  txTimeout: number;
+}
 
-const ConnectBtn = (props) => {
+const ConnectBtn = (props: connectProps) => {
   const [show, setShow] = useState(false);
 
   const wallet = useAnchorWallet();
@@ -84,7 +92,6 @@ const ConnectBtn = (props) => {
         ) : (
           <MintButton
             onClick={onMintModal}
-            variant="contained"
           >
             Mint
           </MintButton>
@@ -101,7 +108,7 @@ const ConnectBtn = (props) => {
           candyMachineId={props.candyMachineId}
           config={props.config}
           connection={props.connection}
-          startDate={props.startDateSeed}
+          startDate={props.startDate}
           treasury={props.treasury}
           txTimeout={props.txTimeout} 
         />

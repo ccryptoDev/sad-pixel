@@ -219,3 +219,21 @@
 .mint-btn:hover {
   opacity: 0.6;
 }
+.modal-body h3 {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-transform: capitalize;
+}
+.success-message {
+  margin-bottom: 3rem;
+}
+.success-message p {
+  margin: 0 !important;
+  font-style: italic;
+  text-align: center;
+  color: #43a51c !important;
+  text-transform: capitalize;
+  line-height: 1.5 !important;
+  font-size: 28px !important;
+}

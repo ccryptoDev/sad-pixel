@@ -2,13 +2,17 @@ import React from 'react';
 import { bool } from 'prop-types';
 import { StyledMenu } from './style';
 
-const MobileMenu = ({ open, ...props }) => {
+interface Props {
+  open: boolean
+}
+
+const MobileMenu = ({open}: Props) => {
   
   const isHidden = open ? true : false;
   const tabIndex = isHidden ? 0 : -1;
 
   return (
-    <StyledMenu className="mobile-menu" open={open} aria-hidden={!isHidden} {...props}>
+    <StyledMenu className="mobile-menu" open={open} aria-hidden={!isHidden}>
       <a href="/launching-soon" tabIndex={tabIndex}>
         Launching Soon
       </a>

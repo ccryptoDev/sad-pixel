@@ -1,7 +1,14 @@
 import React from "react";
 import './style.css'
 
-const BaseModal = (props) => {
+interface Props {
+  show: boolean;
+  closeModal: () => void;
+  address: string | undefined;
+  children: React.ReactNode
+}
+
+const BaseModal = (props: Props) => {
   const { children, show, closeModal, address } = props;
   
   return (

@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { bool, func } from 'prop-types';
 import { StyledBurger } from './style';
 
-const Burger = ({ open, setOpen, ...props }) => {
-  
+interface Props {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const Burger = ( {
+  open,
+  setOpen
+}: Props ) => {
   const isExpanded = open ? true : false;
   
   return (
-    <StyledBurger className="burger" aria-label="Toggle menu" aria-expanded={isExpanded} open={open} onClick={() => setOpen(!open)} {...props}>
+    <StyledBurger open={open} onClick={() => setOpen(!open)}>
       <span />
       <span />
       <span />

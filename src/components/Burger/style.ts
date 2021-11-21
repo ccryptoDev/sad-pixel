@@ -1,6 +1,11 @@
+import { string } from 'prop-types';
 import styled from 'styled-components';
 
-export const StyledBurger = styled.button`
+interface Props {
+  open: boolean;
+}
+
+export const StyledBurger = styled.button<Props>`
   position: absolute;
   top: 30px;
   left: 25px;
@@ -28,7 +33,8 @@ export const StyledBurger = styled.button`
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${open => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${open => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     :nth-child(2) {

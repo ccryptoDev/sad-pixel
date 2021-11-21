@@ -36,19 +36,9 @@ const LaunchingSoon = () => {
     window.open('http://discord.gg/hTdUmKfAtb', '_blank');
   }
   return (
-    <PageContainer onWheel={ event => {
-      if (event.nativeEvent.wheelDelta > 0) {
-        if(window.pageYOffset === 0 ) {
-          setIsFixed(false);
-        };
-      } else {
-        if(window.pageYOffset > 0) {
-          setIsFixed(true);
-        };
-      }
-    }}>
+    <PageContainer>
       <PageInner>
-        <Header isFixed={isFixed} />
+        <Header />
         <Content>
           <ContainerBanner>
             <Banner>
