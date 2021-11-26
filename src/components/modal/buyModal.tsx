@@ -233,7 +233,7 @@ const BuyModal = (props: connectProps) => {
           <div className="amount-inner">
             <div className="max" style={{display: `none`}}>max <label>{max}</label></div>
             <div className="amount-input">
-              <input type="number" id="amount" name="amount" min={1} onChange={(e) => handleAmount(parseFloat(e.target.value))} value={amount} />
+              <input type="number" id="amount" name="amount" min={1} max={1} onChange={(e) => handleAmount(parseFloat(e.target.value))} value={amount} />
               <label></label>
             </div>
             <div className="mint-summary">
