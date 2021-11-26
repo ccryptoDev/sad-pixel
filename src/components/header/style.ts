@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { theme } from '../../theme'
 
 interface props {
-  isFixed: boolean
+  // theme: {}
 }
 
 export const HeaderContainer = styled.div`
@@ -21,7 +22,7 @@ export const HeaderInner = styled.div`
   justify-content: space-between;
   transition: 0.8s;
   
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${theme.mobile}) {
     justify-content: center;
   }
 `;
@@ -43,7 +44,7 @@ export const LogoContainer = styled.div`
 export const Menu = styled.div`
   display: flex;
   align-items: center;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${theme.mobile}) {
     display: none;
   }
 `;
@@ -98,7 +99,7 @@ export const MenuItem = styled.div`
 
 export const MobileMenuContainer = styled.div`
   display: none;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${theme.mobile}) {
     display: inline-block;
   }
 `;
