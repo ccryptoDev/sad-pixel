@@ -5,7 +5,7 @@ interface Props {
   open: boolean;
 }
 
-export const StyledBurger = styled.button<Props>`
+export const StyledBurger = styled.button`
   position: absolute;
   top: 30px;
   left: 25px;
@@ -33,17 +33,16 @@ export const StyledBurger = styled.button<Props>`
     transform-origin: 1px;
 
     :first-child {
-      transform: ${open => open ? 'rotate(45deg)' : 'rotate(0)'};
-      transform: ${open => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${(props: Props) => (props.open === true ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => open ? '0' : '1'};
-      transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+      opacity: ${(props: Props) => props.open ? '0' : '1'};
+      transform: ${(props: Props) => props.open ? 'translateX(20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${(props: Props) => props.open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `;

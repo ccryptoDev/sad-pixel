@@ -4,7 +4,7 @@ interface Props {
   open: boolean
 }
 
-export const StyledMenu = styled.nav<Props>`
+export const StyledMenu = styled.nav`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -13,7 +13,7 @@ export const StyledMenu = styled.nav<Props>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transform: ${open => open ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${(props: Props) => props.open ? 'translateX(0)' : 'translateX(-100%)'};
   text-align: left;
   transition: transform 0.3s ease-in-out;
   background-color: rgb(22, 22, 22);

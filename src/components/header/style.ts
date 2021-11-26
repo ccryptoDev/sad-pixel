@@ -99,6 +99,7 @@ export const MenuItem = styled.div`
 
 export const MobileMenuContainer = styled.div`
   display: none;
+  
   @media (max-width: ${theme.mobile}) {
     display: inline-block;
   }
